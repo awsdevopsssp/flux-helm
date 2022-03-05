@@ -6,7 +6,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: ./semics/charts/podinfo
+      chart: ./charts/podinfo
       version: '1.0'
       sourceRef:
         kind: GitRepository
