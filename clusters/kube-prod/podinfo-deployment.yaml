@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: podinfo
   namespace: default
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.app: semver:~1
 spec:
   selector:
     matchLabels:
@@ -14,8 +17,8 @@ spec:
     spec:
       containers:
         - name: podinfod
-          # image: ghcr.io/stefanprodan/podinfo:5.0.0 # {"$imagepolicy": "flux-system:podinfo"}
-          image: "$imagepolicy": "flux-system:podinfo"
+          image: ghcr.io/stefanprodan/podinfo:5.0.0 # {"$imagepolicy": "flux-system:podinfo"}
+          # image: "$imagepolicy": "flux-system:podinfo"
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
